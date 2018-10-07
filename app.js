@@ -17,6 +17,9 @@ var options = {
 eos.getBlock({block_num_or_id: 12})
   .then(result => console.log(result));
 
+eos.getInfo({})
+  .then(result => console.log(result));
+
   // write to mongodb
 
 
