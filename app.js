@@ -6,6 +6,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 const eos = EosApi();
 
 var request = require("request");
+var blockId = 12;
 
 // verifying connection to EOS node by logging a single block to the console
 var options = {
@@ -14,7 +15,7 @@ var options = {
   body: '{"block_num_or_id":"12"}'
 };
 
-eos.getBlock({block_num_or_id: 12})
+eos.getBlock({block_num_or_id: blockId})
   .then(result => console.log(result));
 
 eos.getInfo({})
