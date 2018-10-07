@@ -1,7 +1,9 @@
+const EosApi = require('eosjs-api');
 const express = require('express');
 const app = express();
 const path = require('path');
 app.use(express.static(path.resolve(__dirname, 'public')));
+const eos = EosApi();
 
 var request = require("request");
 
@@ -9,17 +11,15 @@ var request = require("request");
 var options = {
   method: 'POST',
   url: 'http://127.0.0.1:8888/v1/chain/get_block',
-  body: '{"block_num_or_id":"145"}'
+  body: '{"block_num_or_id":"12"}'
 };
 
-request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+eos.getBlock({block_num_or_id: 12})
+  .then(result => console.log(result));
 
   // write to mongodb
 
 
-  console.log(body);
-});
 
 var bodyParser = require('body-parser');
 var http = require('http');
