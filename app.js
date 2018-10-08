@@ -41,8 +41,9 @@ var bodyParser = require('body-parser');
 var http = require('http');
 
 
-app.get('/', (req, res) => {
-  res.send('Howdy');
+app.get('/show', (req, res) => {
+  eos.getInfo({})
+    .then(result => res.send(result));
 });
 
 app.listen(3000, () => {
