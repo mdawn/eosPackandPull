@@ -1,6 +1,21 @@
-<p>Head Block Number: <%= head_block_num %></p>
+<html>
+<head>
+  <script src="/eos-fizzbuzz-frontend.js"></script></head>
+<body>
+<p>EOS BLOCK REQUEST </p>
+
+</p>
+<form action="/show" method="POST">
+  <button type="button" id="latest-block-button">Pull Most Recent Block</button>
+</p>
+<p id="recent-block"> request prints here </p>
+<p> *********************** </p>
 
 <form action="/show" method="POST">
-    <input type="text" name="account_name" placeholder="account">
-    <input type="submit">
+    <input type="text" placeholder="block id">
+    <p> </p>
+    <button type="button" id="pulled-block-button">Pull by Block ID</button>
+    <p id="pulled-block"> request prints here </p>
 </form>
+</body>
+</html>
