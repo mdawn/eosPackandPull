@@ -5,21 +5,24 @@ const path = require('path');
 app.use(express.static(path.resolve(__dirname, 'public')));
 const eos = EosApi();
 
+var blockId = 12;
 
 // Retrieve
 var MongoClient = require('mongodb').MongoClient;
 
-// Connect to the db
+// log block in the db
 MongoClient.connect("mongodb://localhost:27017/eostest", function(err, db) {
-  if(!err) {
-    console.log("We are connected");
-  }
+  if (err) throw err;
+  var dbo = db.db("eostest");
+  eos.getBlock({block_num_or_id: blockId})
+    .then(result => {
+      dbo.collection("eosBlocks").insertOne(result, function(err, res) {
+        if (err) throw err;
+        console.log("1 block inserted");
+        db.close();
+      });
+    });
 });
-
-var request = require("request");
-var blockId = 12;
-
-
 
 // verifying connection to EOS node by logging a single block to the console
 var options = {
@@ -34,12 +37,8 @@ eos.getBlock({block_num_or_id: blockId})
 eos.getInfo({})
   .then(result => console.log(result));
 
-  // write to mongodb
-
-
 var bodyParser = require('body-parser');
 var http = require('http');
-
 
 app.get('/show', (req, res) => {
   eos.getInfo({})
