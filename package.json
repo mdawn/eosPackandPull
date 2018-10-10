@@ -19,6 +19,8 @@
   "dependencies": {
     "eosjs-api": "^7.0.4",
     "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.2",
     "mongodb": "^3.1.6",
     "mongoose": "^5.3.2",
     "request": "^2.88.0"
