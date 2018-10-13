@@ -6,12 +6,12 @@ const { buildSchema } = require('graphql');
 const fs = require('fs');
 const path = require('path');
 //app.use(express.static(path.resolve(__dirname, 'public')));
-const eos = EosApi();
+const eos = EosApi({httpEndpoint: 'http://eosio:8888'});
 const Block = require('./block');
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost:27017/eostest', {poolSize: 1});
+mongoose.connect('mongodb://mongo:27017/eostest', {poolSize: 1});
 
 async function fetchBlock(blockNum){
   console.log("whiskey");
