@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
 
-//create instance of mongoose.schema. Schema takes an object
-//that shows the shape/structure of db entries
-
+// schema object
 let action = {
     account: String,
     name: String,
@@ -70,18 +67,16 @@ let BlockSchema = new Schema({
 
 }, { runSettersOnQuery: true });
 
-//export module to use in server.js
 const Block = module.exports = mongoose.model('Block', BlockSchema);
 
-//controller functions for block model in db
+// gets block number, pulls from db & returns it
 module.exports.getBlockByNum = async function (block_num) {
     const query = { block_num: block_num };
-    console.log(query);
     let result = await Block.findOne(query, () => {} );
-    console.log(result);
     return result;
 }
 
+// defines info to go in db
 module.exports.addBlock = async function (newBlock) {
     if(!newBlock.error){
         const blockForDB = new Block({
@@ -101,7 +96,7 @@ module.exports.addBlock = async function (newBlock) {
             regions: newBlock.regions,
             input_transactions: newBlock.input_transactions
         });
-        // console.log(blockForDB);
-        blockForDB.save( () => { /*console.log("new block added to db")*/ } );
+
+        blockForDB.save( () => {} );
     }
 }
