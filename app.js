@@ -89,4 +89,4 @@ graphQLapp.use('/graphql', graphqlHTTP({
 }));
 
 graphQLapp.use(express.static(path.resolve(__dirname, 'public')));
-graphQLapp.listen(4000);
+graphQLapp.listen(process.env.PORT || 4000);
