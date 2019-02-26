@@ -8,7 +8,7 @@ function updatePulledBlock(newText) {
 }
 
 function getRecentBlockAndUpdatePage() {
-  fetch('http://localhost:4000/graphql?', {
+  fetch('/graphql', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -40,7 +40,7 @@ function getRecentBlockAndUpdatePage() {
 
 function getPulledBlockAndUpdatePage() {
   var blockID = document.querySelector('input').value;
-  fetch('http://localhost:4000/graphql?', {
+  fetch('/graphql', {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
