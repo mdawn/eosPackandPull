@@ -1,5 +1,5 @@
 {
-  "name": "eosfizzbuzz",
+  "name": "eosPackandPull",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mdawn/eosFizzBuzz.git"
+    "url": "git+https://github.com/mdawn/eosPackandPull.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mdawn/eosFizzBuzz/issues"
+    "url": "https://github.com/mdawn/eosPackandPull/issues"
   },
-  "homepage": "https://github.com/mdawn/eosFizzBuzz#readme",
+  "homepage": "https://github.com/mdawn/eosPackandPull#readme",
   "dependencies": {
     "eosjs-api": "^7.0.4",
     "express": "^4.16.3",
