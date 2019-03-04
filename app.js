@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 
 var uri = 'mongodb://heroku_knk43932:6me9jt605lr36njsnk5giakkmn@ds351455.mlab.com:51455/heroku_knk43932';
 
-mongoose.connect(uri, {poolSize: 1});
+mongoose.connect(uri, {poolSize: 1}, { useNewUrlParser: true });
 
 // calls the db or eos
 async function fetchBlock(blockNum){
