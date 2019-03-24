@@ -8,7 +8,6 @@ const eos = EosApi({httpEndpoint: 'http://eosio:8888'});
 const Block = require('./block');
 const mongoose = require('mongoose');
 
-var uri = 'mongodb://heroku_knk43932:6me9jt605lr36njsnk5giakkmn@ds351455.mlab.com:51455/heroku_knk43932';
 
 mongoose.connect(uri, {poolSize: 1}, { useNewUrlParser: true });
 
